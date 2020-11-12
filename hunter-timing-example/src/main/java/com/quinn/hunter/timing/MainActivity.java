@@ -1,8 +1,10 @@
 package com.quinn.hunter.timing;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.quinn.hunter.timing.black.NetWorkManager;
 
 /**
