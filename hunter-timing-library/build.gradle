@@ -32,7 +32,7 @@ ext {
     libraryName = 'hunter-timing-library'
     artifact = 'hunter-timing-library'
 
-    libraryDescription = 'A fast, incremental, cocurrent framework to develop compile plugin for android project'
+    libraryDescription = 'A fast, incremental, concurrent framework to develop compile plugin for android project'
 
     siteUrl = 'https://github.com/weikaiyun/EasyHunter'
     gitUrl = 'https://github.com/weikaiyun/EasyHunter.git'

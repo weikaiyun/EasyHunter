@@ -35,12 +35,12 @@ ext {
     libraryName = 'hunter-okhttp-library-compat'
     artifact = 'hunter-okhttp-library-compat'
 
-    libraryDescription = 'A fast, incremental, cocurrent framework to develop compile plugin for android project'
+    libraryDescription = 'A fast, incremental, concurrent framework to develop compile plugin for android project'
 
     siteUrl = 'https://github.com/weikaiyun/EasyHunter'
     gitUrl = 'https://github.com/weikaiyun/EasyHunter.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     developerId = 'weikaiyun'
     developerName = 'weikaiyun'
