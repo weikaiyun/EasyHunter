@@ -25,23 +25,23 @@ dependencies {
 }
 
 ext {
-    bintrayRepo = 'maven'
+    bintrayRepo = 'EasyHunter'
     bintrayName = 'hunter-linelog-library'
 
-    publishedGroupId = 'com.quinn.hunter'
+    publishedGroupId = 'com.weikaiyun.EasyHunter'
     libraryName = 'hunter-linelog-library'
     artifact = 'hunter-linelog-library'
 
     libraryDescription = 'A fast, incremental, cocurrent framework to develop compile plugin for android project'
 
-    siteUrl = 'https://github.com/Leaking/Hunter'
-    gitUrl = 'https://github.com/Leaking/Hunter.git'
+    siteUrl = 'https://github.com/weikaiyun/EasyHunter'
+    gitUrl = 'https://github.com/weikaiyun/EasyHunter.git'
 
-    libraryVersion = '0.8.6'
+    libraryVersion = '1.0.0'
 
-    developerId = 'Leaking'
-    developerName = 'QuinnChen'
-    developerEmail = 'chenhuazhaoao@gmail.com'
+    developerId = 'weikaiyun'
+    developerName = 'weikaiyun'
+    developerEmail = 'wky19900505@gmail.com'
 
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
@@ -50,20 +50,3 @@ ext {
 
 apply from: '../script/installv1.gradle'
 apply from: '../script/bintrayv1.gradle'
-
-//publish script for debug mode
-
-//apply plugin: 'maven'
-//
-//group='com.quinn.hunter'
-//version='1.0.0'
-//
-//def localRepoURL = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-//
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            repository(url: localRepoURL)
-//        }
-//    }
-//}
