@@ -17,7 +17,7 @@ public class ParameterPrinter {
 
     public ParameterPrinter(String tag, String methodName){
         this.tag = tag;
-        result.append("⇢ ").append(methodName).append("[");
+        result.append("-> ").append(methodName).append("[");
     }
 
     public ParameterPrinter append(String name, int val) {
