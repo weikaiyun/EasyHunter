@@ -19,6 +19,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
+import org.apache.commons.io.IOUtils;
+
 /**
  * Created by quinn on 07/09/2018
  */
@@ -46,7 +48,7 @@ public abstract class BaseWeaver implements IWeaver {
             byte[] newEntryContent;
             // separator of entry name is always '/', even in windows
             if (!isWeavableClass(outEntry.getName().replace("/", "."))) {
-                newEntryContent = org.apache.commons.io.IOUtils.toByteArray(originalFile);
+                newEntryContent = IOUtils.toByteArray(originalFile);
             } else {
                 newEntryContent = weaveSingleClassToByteArray(originalFile);
             }
@@ -108,7 +110,10 @@ public abstract class BaseWeaver implements IWeaver {
 
     @Override
     public boolean isWeavableClass(String fullQualifiedClassName) {
-        return fullQualifiedClassName.endsWith(".class") && !fullQualifiedClassName.contains("R$") && !fullQualifiedClassName.contains("R.class") && !fullQualifiedClassName.contains("BuildConfig.class");
+        return fullQualifiedClassName.endsWith(".class")
+                && !fullQualifiedClassName.contains("R$")
+                && !fullQualifiedClassName.contains("R.class")
+                && !fullQualifiedClassName.contains("BuildConfig.class");
     }
 
 }
