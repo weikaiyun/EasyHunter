@@ -12,9 +12,10 @@ import com.android.build.api.transform.TransformInput;
 import com.android.build.api.transform.TransformInvocation;
 import com.android.build.api.transform.TransformOutputProvider;
 import com.android.build.gradle.internal.pipeline.TransformManager;
-import com.android.ide.common.internal.WaitableExecutor;
 import com.quinn.hunter.transform.asm.BaseWeaver;
 import com.quinn.hunter.transform.asm.ClassLoaderHelper;
+import com.quinn.hunter.transform.concurrent.Schedulers;
+import com.quinn.hunter.transform.concurrent.Worker;
 
 import org.apache.commons.io.FileUtils;
 import org.gradle.api.Project;
@@ -45,13 +46,14 @@ public class HunterTransform extends Transform {
 
     private final Project project;
     protected BaseWeaver bytecodeWeaver;
-    private WaitableExecutor waitableExecutor;
+
+    private final Worker worker;
     private boolean emptyRun = false;
 
     public HunterTransform(Project project) {
         this.project = project;
         this.logger = project.getLogger();
-        this.waitableExecutor = WaitableExecutor.useGlobalSharedThreadPool();
+        this.worker = Schedulers.IO();
     }
 
     @Override
@@ -172,13 +174,13 @@ public class HunterTransform extends Transform {
 
         }
 
-        waitableExecutor.waitForTasksWithQuickFail(true);
+        worker.await();
         long costTime = System.currentTimeMillis() - startTime;
         logger.warn((getName() + " costed " + costTime + "ms"));
     }
 
     private void transformSingleFile(final File inputFile, final File outputFile, final String srcBaseDir) {
-        waitableExecutor.execute(() -> {
+        worker.submit(() -> {
             bytecodeWeaver.weaveSingleClassToFile(inputFile, outputFile, srcBaseDir);
             return null;
         });
@@ -193,7 +195,7 @@ public class HunterTransform extends Transform {
         final String outputDirPath = outputDir.getAbsolutePath();
         if (inputDir.isDirectory()) {
             for (final File file : com.android.utils.FileUtils.getAllFiles(inputDir)) {
-                waitableExecutor.execute(() -> {
+                worker.submit(() -> {
                     String filePath = file.getAbsolutePath();
                     File outputFile = new File(filePath.replace(inputDirPath, outputDirPath));
                     bytecodeWeaver.weaveSingleClassToFile(file, outputFile, inputDirPath);
@@ -204,7 +206,7 @@ public class HunterTransform extends Transform {
     }
 
     private void transformJar(final File srcJar, final File destJar, Status status) {
-        waitableExecutor.execute(() -> {
+        worker.submit(() -> {
             if(emptyRun) {
                 FileUtils.copyFile(srcJar, destJar);
                 return null;
@@ -215,7 +217,7 @@ public class HunterTransform extends Transform {
     }
 
     private void cleanDexBuilderFolder(File dest) {
-        waitableExecutor.execute(() -> {
+        worker.submit(() -> {
             try {
                 String dexBuilderDir = replaceLastPart(dest.getAbsolutePath(), getName(), "dexBuilder");
                 //intermediates/transforms/dexBuilder/debug
