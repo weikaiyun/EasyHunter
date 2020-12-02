@@ -1,9 +1,7 @@
 package com.quinn.hunter.plugin.okhttp;
 
-import com.android.build.api.transform.Context;
 import com.android.build.api.transform.TransformException;
-import com.android.build.api.transform.TransformInput;
-import com.android.build.api.transform.TransformOutputProvider;
+import com.android.build.api.transform.TransformInvocation;
 import com.quinn.hunter.plugin.okhttp.bytecode.OkHttpWeaver;
 import com.quinn.hunter.transform.HunterTransform;
 import com.quinn.hunter.transform.RunVariant;
@@ -11,7 +9,6 @@ import com.quinn.hunter.transform.RunVariant;
 import org.gradle.api.Project;
 
 import java.io.IOException;
-import java.util.Collection;
 
 /**
  * Created by Quinn on 09/09/2018.
@@ -29,10 +26,10 @@ final class OkHttpHunterTransform extends HunterTransform {
     }
 
     @Override
-    public void transform(Context context, Collection<TransformInput> inputs, Collection<TransformInput> referencedInputs, TransformOutputProvider outputProvider, boolean isIncremental) throws IOException, TransformException, InterruptedException {
+    public void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
         okHttpHunterExtension = (OkHttpHunterExtension) project.getExtensions().getByName("okHttpHunterExt");
         this.bytecodeWeaver.setExtension(okHttpHunterExtension);
-        super.transform(context, inputs, referencedInputs, outputProvider, isIncremental);
+        super.transform(transformInvocation);
     }
 
     @Override
