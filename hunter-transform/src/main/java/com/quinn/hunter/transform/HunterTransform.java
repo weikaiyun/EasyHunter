@@ -9,6 +9,7 @@ import com.android.build.api.transform.Status;
 import com.android.build.api.transform.Transform;
 import com.android.build.api.transform.TransformException;
 import com.android.build.api.transform.TransformInput;
+import com.android.build.api.transform.TransformInvocation;
 import com.android.build.api.transform.TransformOutputProvider;
 import com.android.build.gradle.internal.pipeline.TransformManager;
 import com.android.ide.common.internal.WaitableExecutor;
@@ -73,14 +74,14 @@ public class HunterTransform extends Transform {
         return true;
     }
 
-
-    @SuppressWarnings("deprecation")
     @Override
-    public void transform(Context context,
-                   Collection<TransformInput> inputs,
-                   Collection<TransformInput> referencedInputs,
-                   TransformOutputProvider outputProvider,
-                   boolean isIncremental) throws IOException, TransformException, InterruptedException {
+    public void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
+        Context context = transformInvocation.getContext();
+        Collection<TransformInput> inputs = transformInvocation.getInputs();
+        Collection<TransformInput> referencedInputs = transformInvocation.getReferencedInputs();
+        TransformOutputProvider outputProvider = transformInvocation.getOutputProvider();
+        boolean isIncremental = transformInvocation.isIncremental();
+
         RunVariant runVariant = getRunVariant();
         if("debug".equals(context.getVariantName())) {
             emptyRun = runVariant == RunVariant.RELEASE || runVariant == RunVariant.NEVER;
