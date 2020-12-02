@@ -47,7 +47,7 @@ public class HunterTransform extends Transform {
     private WaitableExecutor waitableExecutor;
     private boolean emptyRun = false;
 
-    public HunterTransform(Project project){
+    public HunterTransform(Project project) {
         this.project = project;
         this.logger = project.getLogger();
         this.waitableExecutor = WaitableExecutor.useGlobalSharedThreadPool();

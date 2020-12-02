@@ -22,7 +22,7 @@ import java.util.zip.ZipOutputStream;
 /**
  * Created by quinn on 07/09/2018
  */
-public abstract class BaseWeaver implements IWeaver{
+public abstract class BaseWeaver implements IWeaver {
 
     private static final FileTime ZERO = FileTime.fromMillis(0);
 
@@ -107,7 +107,7 @@ public abstract class BaseWeaver implements IWeaver{
     }
 
     @Override
-    public boolean isWeavableClass(String fullQualifiedClassName){
+    public boolean isWeavableClass(String fullQualifiedClassName) {
         return fullQualifiedClassName.endsWith(".class") && !fullQualifiedClassName.contains("R$") && !fullQualifiedClassName.contains("R.class") && !fullQualifiedClassName.contains("BuildConfig.class");
     }
 
