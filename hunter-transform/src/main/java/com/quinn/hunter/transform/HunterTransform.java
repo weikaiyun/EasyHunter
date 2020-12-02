@@ -122,7 +122,7 @@ public class HunterTransform extends Transform {
                             break;
                     }
                 } else {
-                    //Forgive me, Some project will store 3rd-party aar for several copies in dexbuilder folder,unknown issue.
+                    //Some project will store 3rd-party aar for several copies in dexbuilder folder, unknown issue.
                     if(inDuplicatedClassSafeMode() && !isIncremental && !flagForCleanDexBuilderFolder) {
                         cleanDexBuilderFolder(dest);
                         flagForCleanDexBuilderFolder = true;
@@ -194,7 +194,7 @@ public class HunterTransform extends Transform {
         final String inputDirPath = inputDir.getAbsolutePath();
         final String outputDirPath = outputDir.getAbsolutePath();
         if (inputDir.isDirectory()) {
-            for (final File file : com.android.utils.FileUtils.getAllFiles(inputDir)) {
+            for (final File file : FileUtils.listFiles(inputDir, null, true)) {
                 worker.submit(() -> {
                     String filePath = file.getAbsolutePath();
                     File outputFile = new File(filePath.replace(inputDirPath, outputDirPath));
@@ -219,12 +219,12 @@ public class HunterTransform extends Transform {
     private void cleanDexBuilderFolder(File dest) {
         worker.submit(() -> {
             try {
-                String dexBuilderDir = replaceLastPart(dest.getAbsolutePath(), getName(), "dexBuilder");
+                String dexBuilderDir = getDexBuilderDir(dest);
                 //intermediates/transforms/dexBuilder/debug
                 File file = new File(dexBuilderDir).getParentFile();
                 project.getLogger().warn("clean dexBuilder folder = " + file.getAbsolutePath());
                 if(file.exists() && file.isDirectory()) {
-                    com.android.utils.FileUtils.deleteDirectoryContents(file);
+                    FileUtils.cleanDirectory(file);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -233,13 +233,13 @@ public class HunterTransform extends Transform {
         });
     }
 
-    private String replaceLastPart(String originString, String replacement, String toreplace) {
-        int start = originString.lastIndexOf(replacement);
-        StringBuilder builder = new StringBuilder();
-        builder.append(originString, 0, start);
-        builder.append(toreplace);
-        builder.append(originString.substring(start + replacement.length()));
-        return builder.toString();
+    private String getDexBuilderDir(File dest) {
+        String originStr = dest.getAbsolutePath();
+        String replacedStr = getName();
+        int start = originStr.lastIndexOf(replacedStr);
+        return originStr.substring(0, start)
+                + "dexBuilder"
+                + originStr.substring(start + replacedStr.length());
     }
 
     @Override
