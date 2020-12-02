@@ -42,7 +42,7 @@ public class HunterTransform extends Transform {
         SCOPES.add(QualifiedContent.Scope.EXTERNAL_LIBRARIES);
     }
 
-    private Project project;
+    private final Project project;
     protected BaseWeaver bytecodeWeaver;
     private WaitableExecutor waitableExecutor;
     private boolean emptyRun = false;
@@ -233,7 +233,7 @@ public class HunterTransform extends Transform {
     private String replaceLastPart(String originString, String replacement, String toreplace) {
         int start = originString.lastIndexOf(replacement);
         StringBuilder builder = new StringBuilder();
-        builder.append(originString.substring(0, start));
+        builder.append(originString, 0, start);
         builder.append(toreplace);
         builder.append(originString.substring(start + replacement.length()));
         return builder.toString();
