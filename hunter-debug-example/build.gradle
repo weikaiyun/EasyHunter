@@ -42,8 +42,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath 'com.weikaiyun.EasyHunter:hunter-debug-plugin:1.0.0'
-        classpath 'com.weikaiyun.EasyHunter:hunter-transform:1.0.0'
+        classpath 'com.weikaiyun.EasyHunter:hunter-debug-plugin:1.0.1'
     }
 }
 
