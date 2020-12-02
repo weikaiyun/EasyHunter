@@ -1,9 +1,7 @@
 package com.quinn.hunter.plugin.linelog;
 
-import com.android.build.api.transform.Context;
 import com.android.build.api.transform.TransformException;
-import com.android.build.api.transform.TransformInput;
-import com.android.build.api.transform.TransformOutputProvider;
+import com.android.build.api.transform.TransformInvocation;
 import com.quinn.hunter.plugin.linelog.bytecode.LinelogWeaver;
 import com.quinn.hunter.transform.HunterTransform;
 import com.quinn.hunter.transform.RunVariant;
@@ -11,7 +9,6 @@ import com.quinn.hunter.transform.RunVariant;
 import org.gradle.api.Project;
 
 import java.io.IOException;
-import java.util.Collection;
 
 
 /**
@@ -19,7 +16,7 @@ import java.util.Collection;
  */
 public final class LinelogHunterTransform extends HunterTransform {
 
-    private Project project;
+    private final Project project;
     private LinelogHunterExtension linelogHunterExtension;
 
     public LinelogHunterTransform(Project project) {
@@ -30,9 +27,9 @@ public final class LinelogHunterTransform extends HunterTransform {
     }
 
     @Override
-    public void transform(Context context, Collection<TransformInput> inputs, Collection<TransformInput> referencedInputs, TransformOutputProvider outputProvider, boolean isIncremental) throws IOException, TransformException, InterruptedException {
+    public void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
         linelogHunterExtension = (LinelogHunterExtension) project.getExtensions().getByName("linelogHunterExt");
-        super.transform(context, inputs, referencedInputs, outputProvider, isIncremental);
+        super.transform(transformInvocation);
     }
 
     @Override
