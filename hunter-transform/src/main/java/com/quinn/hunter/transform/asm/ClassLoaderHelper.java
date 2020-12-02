@@ -54,5 +54,4 @@ public class ClassLoaderHelper {
         return sdkDirectory + compileSdkVersion + File.separator + "android.jar";
     }
 
-
 }
