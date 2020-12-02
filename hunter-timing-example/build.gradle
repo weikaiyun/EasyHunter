@@ -27,7 +27,6 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
     implementation 'com.weikaiyun.EasyHunter:hunter-timing-library:1.0.0'
 }
 
@@ -44,8 +43,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath 'com.weikaiyun.EasyHunter:hunter-timing-plugin:1.0.0'
-        classpath 'com.weikaiyun.EasyHunter:hunter-transform:1.0.0'
+        classpath 'com.weikaiyun.EasyHunter:hunter-timing-plugin:1.0.1'
     }
 }
 
