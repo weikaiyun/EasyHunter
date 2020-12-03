@@ -103,7 +103,7 @@ public class HunterTransform extends Transform {
             for(JarInput jarInput : input.getJarInputs()) {
                 Status status = jarInput.getStatus();
                 File dest = outputProvider.getContentLocation(
-                        jarInput.getFile().getAbsolutePath(),
+                        jarInput.getName(),
                         jarInput.getContentTypes(),
                         jarInput.getScopes(),
                         Format.JAR);
