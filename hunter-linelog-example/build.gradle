@@ -42,7 +42,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath 'com.weikaiyun.EasyHunter:hunter-linelog-plugin:1.0.1'
+        classpath 'com.weikaiyun.EasyHunter:hunter-linelog-plugin:1.0.2'
     }
 }
 
