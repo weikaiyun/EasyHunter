@@ -19,7 +19,6 @@ android {
     lintOptions {
         abortOnError false
     }
-
 }
 
 
@@ -30,17 +29,15 @@ dependencies {
     implementation 'com.weikaiyun.EasyHunter:hunter-okhttp-library:1.0.1'
 }
 
-repositories {
-    jcenter()
-    google()
-    mavenLocal()
-}
-
 buildscript {
     repositories {
+        repositories {
+            maven {
+                url  "https://dl.bintray.com/weikaiyun/EasyHunter"
+            }
+        }
         jcenter()
         google()
-        mavenLocal()
     }
     dependencies {
         classpath 'com.weikaiyun.EasyHunter:hunter-okhttp-plugin:1.0.3'

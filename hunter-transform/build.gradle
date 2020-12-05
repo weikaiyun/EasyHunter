@@ -11,12 +11,6 @@ dependencies {
     implementation 'org.ow2.asm:asm-commons:7.1'
 }
 
-repositories {
-    google()
-    jcenter()
-    mavenCentral()
-}
-
 ext {
     bintrayRepo = 'EasyHunter'
     bintrayName = 'hunter-transform'

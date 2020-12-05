@@ -29,17 +29,15 @@ dependencies {
     implementation 'com.weikaiyun.EasyHunter:hunter-linelog-library:1.0.0'
 }
 
-repositories {
-    jcenter()
-    google()
-    mavenLocal()
-}
-
 buildscript {
     repositories {
+        repositories {
+            maven {
+                url  "https://dl.bintray.com/weikaiyun/EasyHunter"
+            }
+        }
         jcenter()
         google()
-        mavenLocal()
     }
     dependencies {
         classpath 'com.weikaiyun.EasyHunter:hunter-linelog-plugin:1.0.2'

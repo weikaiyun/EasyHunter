@@ -3,7 +3,6 @@
 buildscript {
     repositories {
         google()
-        mavenLocal()
         jcenter()
     }
     dependencies {
@@ -15,8 +14,12 @@ buildscript {
 
 allprojects {
     repositories {
+        repositories {
+            maven {
+                url  "https://dl.bintray.com/weikaiyun/EasyHunter"
+            }
+        }
         google()
-        mavenLocal()
         jcenter()
     }
 }
