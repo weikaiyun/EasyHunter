@@ -31,7 +31,7 @@ public final class TimingClassAdapter extends ClassVisitor{
         if(isHeritedFromBlockHandler) {
             return mv;
         } else {
-            return mv == null ? null : new com.quinn.hunter.plugin.timing.bytecode.TimingMethodAdapter(className + File.separator + name, access, desc, mv);
+            return mv == null ? null : new TimingMethodAdapter(className + File.separator + name, access, desc, mv);
         }
     }
 
