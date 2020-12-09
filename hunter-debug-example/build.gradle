@@ -40,7 +40,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.weikaiyun.EasyHunter:hunter-debug-plugin:1.0.2'
+        classpath 'com.weikaiyun.EasyHunter:hunter-debug-plugin:1.0.5'
     }
 }
 

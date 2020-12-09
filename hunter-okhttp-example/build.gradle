@@ -40,7 +40,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.weikaiyun.EasyHunter:hunter-okhttp-plugin:1.0.3'
+        classpath 'com.weikaiyun.EasyHunter:hunter-okhttp-plugin:1.0.5'
     }
 }
 
