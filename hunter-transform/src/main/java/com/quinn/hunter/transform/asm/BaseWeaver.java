@@ -94,9 +94,9 @@ public abstract class BaseWeaver implements IWeaver {
     @Override
     public byte[] weaveSingleClassToByteArray(InputStream inputStream) throws IOException {
         ClassReader classReader = new ClassReader(inputStream);
-        ClassWriter classWriter = new ExtendClassWriter(classLoader, ClassWriter.COMPUTE_MAXS);
+        ClassWriter classWriter = new ExtendClassWriter(classLoader, ClassWriter.COMPUTE_FRAMES);
         ClassVisitor classWriterWrapper = wrapClassWriter(classWriter);
-        classReader.accept(classWriterWrapper, ClassReader.EXPAND_FRAMES);
+        classReader.accept(classWriterWrapper, 0);
         return classWriter.toByteArray();
     }
 
