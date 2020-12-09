@@ -41,7 +41,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.weikaiyun.EasyHunter:hunter-timing-plugin:1.0.4'
+        classpath 'com.weikaiyun.EasyHunter:hunter-timing-plugin:1.0.5'
     }
 }
 

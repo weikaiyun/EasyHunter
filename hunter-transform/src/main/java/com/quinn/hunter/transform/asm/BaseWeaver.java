@@ -96,7 +96,7 @@ public abstract class BaseWeaver implements IWeaver {
         ClassReader classReader = new ClassReader(inputStream);
         ClassWriter classWriter = new ExtendClassWriter(classLoader, ClassWriter.COMPUTE_FRAMES);
         ClassVisitor classWriterWrapper = wrapClassWriter(classWriter);
-        classReader.accept(classWriterWrapper, 0);
+        classReader.accept(classWriterWrapper, ClassReader.EXPAND_FRAMES);
         return classWriter.toByteArray();
     }
 
