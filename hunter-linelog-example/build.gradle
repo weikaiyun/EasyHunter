@@ -31,10 +31,8 @@ dependencies {
 
 buildscript {
     repositories {
-        repositories {
-            maven {
-                url  "https://dl.bintray.com/weikaiyun/EasyHunter"
-            }
+        maven {
+            url  "https://dl.bintray.com/weikaiyun/EasyHunter"
         }
         jcenter()
         google()
