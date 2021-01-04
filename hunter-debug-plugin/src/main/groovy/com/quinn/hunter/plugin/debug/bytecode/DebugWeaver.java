@@ -26,12 +26,12 @@ public final class DebugWeaver extends BaseWeaver {
     @Override
     public byte[] weaveSingleClassToByteArray(InputStream inputStream) throws IOException {
         ClassReader classReader = new ClassReader(inputStream);
-        ClassWriter classWriter = new ExtendClassWriter(classLoader, ClassWriter.COMPUTE_FRAMES);
+        ClassWriter classWriter = new ExtendClassWriter(classLoader, ClassWriter.COMPUTE_MAXS);
         DebugPreGoClassAdapter debugPreGoClassAdapter = new DebugPreGoClassAdapter(classWriter);
         classReader.accept(debugPreGoClassAdapter, ClassReader.EXPAND_FRAMES);
         //if need parameter
         if(debugPreGoClassAdapter.isNeedParameter()) {
-            classWriter = new ExtendClassWriter(classLoader, ClassWriter.COMPUTE_FRAMES);
+            classWriter = new ExtendClassWriter(classLoader, ClassWriter.COMPUTE_MAXS);
             DebugClassAdapter debugClassAdapter = new DebugClassAdapter(classWriter, debugPreGoClassAdapter.getMethodParametersMap());
             debugClassAdapter.attachIncludeMethodsAndImplMethods(debugPreGoClassAdapter.getIncludes(),debugPreGoClassAdapter.getImpls());
             classReader.accept(debugClassAdapter, ClassReader.EXPAND_FRAMES);
