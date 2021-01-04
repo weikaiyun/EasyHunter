@@ -15,7 +15,7 @@ buildscript {
 allprojects {
     repositories {
         maven {
-            url  "https://dl.bintray.com/weikaiyun/EasyHunter"
+            url  "https://dl.bintray.com/weikaiyun/SHunter"
         }
         google()
         jcenter()

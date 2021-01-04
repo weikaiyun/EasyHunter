@@ -25,17 +25,17 @@ dependencies {
 }
 
 ext {
-    bintrayRepo = 'EasyHunter'
+    bintrayRepo = 'SHunter'
     bintrayName = 'hunter-linelog-library'
 
-    publishedGroupId = 'com.weikaiyun.EasyHunter'
+    publishedGroupId = 'com.weikaiyun.SHunter'
     libraryName = 'hunter-linelog-library'
     artifact = 'hunter-linelog-library'
 
     libraryDescription = 'A fast, incremental, concurrent framework to develop compile plugin for android project'
 
-    siteUrl = 'https://github.com/weikaiyun/EasyHunter'
-    gitUrl = 'https://github.com/weikaiyun/EasyHunter.git'
+    siteUrl = 'https://github.com/weikaiyun/SHunter'
+    gitUrl = 'https://github.com/weikaiyun/SHunter.git'
 
     libraryVersion = '1.0.0'
 

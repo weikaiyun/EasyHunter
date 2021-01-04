@@ -26,19 +26,19 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
-    implementation 'com.weikaiyun.EasyHunter:hunter-okhttp-library:1.0.1'
+    implementation 'com.weikaiyun.SHunter:hunter-okhttp-library:1.0.1'
 }
 
 buildscript {
     repositories {
         maven {
-            url  "https://dl.bintray.com/weikaiyun/EasyHunter"
+            url  "https://dl.bintray.com/weikaiyun/SHunter"
         }
         jcenter()
         google()
     }
     dependencies {
-        classpath 'com.weikaiyun.EasyHunter:hunter-okhttp-plugin:1.0.5'
+        classpath 'com.weikaiyun.SHunter:hunter-okhttp-plugin:1.0.5'
     }
 }
 

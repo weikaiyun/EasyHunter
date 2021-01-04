@@ -27,19 +27,19 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.weikaiyun.EasyHunter:hunter-timing-library:1.0.0'
+    implementation 'com.weikaiyun.SHunter:hunter-timing-library:1.0.0'
 }
 
 buildscript {
     repositories {
         maven {
-            url  "https://dl.bintray.com/weikaiyun/EasyHunter"
+            url  "https://dl.bintray.com/weikaiyun/SHunter"
         }
         jcenter()
         google()
     }
     dependencies {
-        classpath 'com.weikaiyun.EasyHunter:hunter-timing-plugin:1.0.5'
+        classpath 'com.weikaiyun.SHunter:hunter-timing-plugin:1.0.0'
     }
 }
 

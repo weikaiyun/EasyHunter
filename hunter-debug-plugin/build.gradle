@@ -11,22 +11,22 @@ dependencies {
     implementation 'org.ow2.asm:asm-util:7.1'
     //noinspection GradleDependency
     implementation 'org.ow2.asm:asm-commons:7.1'
-    implementation 'com.weikaiyun.EasyHunter:hunter-transform:1.0.5'
+    implementation 'com.weikaiyun.SHunter:hunter-transform:1.0.5'
 }
 
 
 ext {
-    bintrayRepo = 'EasyHunter'
+    bintrayRepo = 'SHunter'
     bintrayName = 'hunter-debug-plugin'
 
-    publishedGroupId = 'com.weikaiyun.EasyHunter'
+    publishedGroupId = 'com.weikaiyun.SHunter'
     libraryName = 'hunter-debug-plugin'
     artifact = 'hunter-debug-plugin'
 
     libraryDescription = 'A fast, incremental, concurrent framework to develop compile plugin for android project'
 
-    siteUrl = 'https://github.com/weikaiyun/EasyHunter'
-    gitUrl = 'https://github.com/weikaiyun/EasyHunter.git'
+    siteUrl = 'https://github.com/weikaiyun/SHunter'
+    gitUrl = 'https://github.com/weikaiyun/SHunter.git'
 
     libraryVersion = '1.0.5'
 
