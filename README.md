@@ -1,4 +1,4 @@
-﻿# EasyHunter
+﻿# SHunter
 
 ## License
 
