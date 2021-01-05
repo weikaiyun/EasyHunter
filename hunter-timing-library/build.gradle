@@ -25,7 +25,7 @@ dependencies {
 }
 
 ext {
-    bintrayRepo = 'EasyHunter'
+    bintrayRepo = 'SHunter'
     bintrayName = 'hunter-timing-library'
 
     publishedGroupId = 'com.weikaiyun.SHunter'

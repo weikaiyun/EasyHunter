@@ -24,7 +24,7 @@ ext {
     siteUrl = 'https://github.com/weikaiyun/SHunter'
     gitUrl = 'https://github.com/weikaiyun/SHunter.git'
 
-    libraryVersion = '1.0.5'
+    libraryVersion = '1.0.0'
 
     developerId = 'weikaiyun'
     developerName = 'weikaiyun'

@@ -38,7 +38,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.weikaiyun.SHunter:hunter-debug-plugin:1.0.5'
+        classpath 'com.weikaiyun.SHunter:hunter-debug-plugin:1.0.0'
     }
 }
 
